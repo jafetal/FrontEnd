@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.Barra{
+    background-color: #1C65AD ;
+    height: 100px;
+}
+.barimg{
+    height: 150px;
+    width: 150px;
+}
+.SubBarra{
+    background-color: #1989FA ;
+}
+body{
+    background-color: #d7ebff;
+}
+.usuarioIcon{
+    color: #fff;
+}
