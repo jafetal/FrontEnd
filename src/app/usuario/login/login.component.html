@@ -1,3 +1,9 @@
-<p>
-  login works!
-</p>
+<div class="wrapper">
+  <form class="form-signin">       
+    <h3 class="form-signin-heading">Inicio de sesión</h3>
+    <input type="text" class="form-control" #email placeholder="Email" required>
+    <input type="password" class="form-control" #password placeholder="Contraseña" required>      
+    <button type="button" class="btn btn-lg btn-primary btn-block" (click)="authenticationService.SignIn(email.value, password.value)">Iniciar sesión</button>
+    <a routeLink="../registro">¿No tienes cuenta?</a>
+  </form>
+</div>

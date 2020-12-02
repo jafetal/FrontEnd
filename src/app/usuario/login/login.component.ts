@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../service/authentication.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public authenticationService: AuthenticationService,
+    public afAuth: AngularFireAuth,
+    public router: Router) { }
+  
   ngOnInit() {
+    this.afAuth.authState.subscribe( data => {
+      if (data != null){
+        this.router.navigate(['usuario']);
+      }
+    });
   }
 
 }

@@ -1,18 +1,113 @@
-/* You can add global styles to this file, and also import other style files */
-.Barra{
-    background-color: #1C65AD ;
-    height: 100px;
-}
 .barimg{
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 }
 .SubBarra{
     background-color: #1989FA ;
 }
 body{
+    margin: 0;
+    padding: 0;
     background-color: #d7ebff;
 }
 .usuarioIcon{
     color: #fff;
 }
+
+.logo{
+    float: left;
+    text-decoration: none;
+}
+.logginBtn{
+    float: right;
+    margin-top: 20px;
+}
+
+
+
+#scanfcode
+{
+  border-radius:0px;
+  background:#1C65AD;
+  padding:10px;
+  font-size:17px;
+}
+/* logo or main heading */
+#logo
+{
+  font-size:20px;
+  font-weight:bolder;
+  color:#FFF;
+  letter-spacing:2px;
+}
+/* navigation links*/
+#link a
+{
+  color:#01325d;
+  margin:0 20px 0 10px;
+  letter-spacing:1.5px;
+}
+/* navigation link with right border */
+#first-link
+{
+  padding-right:6px;
+  border-right:solid 1px #ccc;
+}
+/* sign up link button and toggle button */
+#button-link ,#toogle-button
+{
+  color:#f2f2f2;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0,0,0,.2);
+  border-radius: 2px;
+  background-color: #fa6a48;
+  line-height: 17px;
+}
+#button-link a
+{
+  color:#f2f2f2;
+}
+
+  .wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  
+  .form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 30px;
+  }
+  .form-signin .checkbox {
+    font-weight: normal;
+  }
+  .form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
