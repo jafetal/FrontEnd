@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(public authenticationService: AuthenticationService,
-    public afAuth: AngularFireAuth,
-    public router: Router) { }
+              public afAuth: AngularFireAuth,
+              public router: Router) { }
   
   ngOnInit() {
     this.afAuth.authState.subscribe( data => {

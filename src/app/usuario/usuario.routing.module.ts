@@ -1,3 +1,4 @@
+import { ExplorarComponent } from './explorar/explorar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +15,10 @@ const routes: Routes = [
     {
       path: 'inicio',
       component: InicioComponent,
+    },
+    {
+      path: 'explorar',
+      component: ExplorarComponent,
     },
     {
       path: 'login',

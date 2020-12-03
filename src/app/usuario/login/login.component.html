@@ -1,9 +1,26 @@
+<nav id="scanfcode" class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a id="logo" class="navbar-brand" routerLink="../inicio"><img src="../../../assets/Logo.png" class="barimg"> Tienda Variada Online</a>
+    </div>
+  </div>
+</nav>
+            
+<nav class="navbar navbar-expand-md navbar-dark SubBarra">
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link" routerLink="" routerLinkActive="">Inicio</a>
+      <a class="nav-item nav-link" routerLink="" routerLinkActive="">Carrito</a>
+      <a class="nav-item nav-link" routerLink="" routerLinkActive="">Avisos</a>
+      <a class="nav-item nav-link" routerLink="" routerLinkActive="">Favoritos</a>
+    </div>
+</nav>
+
 <div class="wrapper">
   <form class="form-signin">       
     <h3 class="form-signin-heading">Inicio de sesión</h3>
     <input type="text" class="form-control" #email placeholder="Email" required>
     <input type="password" class="form-control" #password placeholder="Contraseña" required>      
-    <button type="button" class="btn btn-lg btn-primary btn-block" (click)="authenticationService.SignIn(email.value, password.value)">Iniciar sesión</button>
-    <a routeLink="../registro">¿No tienes cuenta?</a>
+    <button type="button" class="btn btn-lg btn-primary btn-block boton" (click)="authenticationService.SignIn(email.value, password.value)">Iniciar sesión</button>
+    <a routerLink="../registro">¿No tienes cuenta?</a>
   </form>
 </div>

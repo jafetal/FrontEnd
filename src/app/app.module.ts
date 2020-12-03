@@ -1,3 +1,5 @@
+import { AnuncioService } from './service/anuncio.service';
+import { ProductService } from './service/product.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,6 +11,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AuthenticationService } from './service/authentication.service';
+import { RouterModule } from '@angular/router';
+
+
 
 
 
@@ -23,8 +28,9 @@ import { AuthenticationService } from './service/authentication.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    RouterModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, ProductService, AnuncioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

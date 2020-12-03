@@ -15,12 +15,98 @@
 </nav>
             
 <nav class="navbar navbar-expand-md navbar-dark SubBarra">
-    <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link" routerLink="" routerLinkActive="active">Inicio</a>
-      <a class="nav-item nav-link" routerLink="" routerLinkActive="">registro</a>
-      <a class="nav-item nav-link" routerLink="" routerLinkActive="">login</a>
-      <a class="nav-item nav-link" routerLink="" routerLinkActive="">Carrito</a>
+    <div class="navbar-nav mr-auto mx-auto">
+      <a class="nav-item nav-link" routerLink="../inicio" routerLinkActive="active">Inicio</a>
+      <a class="nav-item nav-link" routerLink="../explorar" routerLinkActive="">Explorar</a>
       <a class="nav-item nav-link" routerLink="" routerLinkActive="">Avisos</a>
       <a class="nav-item nav-link" routerLink="" routerLinkActive="">Favoritos</a>
     </div>
 </nav>
+
+<div class="container cont">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <ng-container *ngFor="let anuncio of anunciosList; let i = index;">
+        <ng-container *ngIf="anuncio.banner">
+        <div *ngIf="i%2 == 0" class="carousel-item active">
+          <img class="d-block w-100" src={{anuncio.urlImg}} alt="Slide">
+          <div class="carousel-caption d-none d-md-block bannerText">
+            <h5>{{anuncio.name}}</h5>
+            <p>{{anuncio.information}}</p>
+          </div>
+        </div>
+        <div *ngIf="i%2 != 0" class="carousel-item">
+          <img class="d-block w-100" src={{anuncio.urlImg}} alt="Slide">
+          <div class="carousel-caption d-none d-md-block bannerText">
+            <h5>{{anuncio.name}}</h5>
+            <p>{{anuncio.information}}</p>
+          </div>
+        </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div class="app flex-row align-items-center" style="margin-top: 20px; margin-bottom: 30px;">   
+    <div class="container"> 
+        <div class="card-deck row">
+          <ng-container *ngFor="let anuncio of anunciosList">
+            <div class="card col-md-4" *ngIf="!anuncio.banner" style="background-color:#252c33; color: white">
+               <img class="card-img-top" src={{anuncio.urlImg}} alt="Card image cap" style="margin-top: 20px; height: 50%;">
+                <div class="card-block">
+                    <h4 class="card-title">{{anuncio.name}} </h4>
+                    <p class="card-text"><button type="button" class="btn botonAn" data-toggle="modal" data-target="#exampleModal" (click)="setActive(anuncio)">
+                      Ver más...
+                    </button></p>
+                    
+                </div>
+            </div>
+          </ng-container>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 style="margin-left: 30px;">Te recomendamos: </h4>
+  </div>
+  <div class="row mx-auto" style="text-align: center;">
+    <ng-container *ngFor="let producto of productosList; let i = index">
+    <div *ngIf="!(i>4)" class="card col-sm-2 tarjeta">
+        <img class="card-img-top" src={{producto.urlImg}} alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">{{producto.name}}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{anuncioActivo.title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{anuncioActivo.information}}
+        <img class="card-img-top" src={{anuncioActivo.urlImg}}  style="margin-top: 20px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

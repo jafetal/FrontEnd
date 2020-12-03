@@ -6,13 +6,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.scss']
+  styleUrls: ['../login/login.component.scss']
 })
 export class RegistroComponent implements OnInit {
 
   constructor(public authenticationService: AuthenticationService,
-    public afAuth: AngularFireAuth,
-    public router: Router) { }
+              public afAuth: AngularFireAuth,
+              public router: Router) { }
 
   ngOnInit() {
     this.afAuth.authState.subscribe( data => {
