@@ -1,5 +1,6 @@
 import { AnuncioService } from './service/anuncio.service';
 import { ProductService } from './service/product.service';
+import { CategoriaService } from './service/categoria.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +13,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AuthenticationService } from './service/authentication.service';
 import { RouterModule } from '@angular/router';
-
 
 
 
@@ -30,7 +30,7 @@ import { RouterModule } from '@angular/router';
     AngularFireAuthModule,
     RouterModule
   ],
-  providers: [AuthenticationService, ProductService, AnuncioService],
+  providers: [AuthenticationService, ProductService, AnuncioService, CategoriaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

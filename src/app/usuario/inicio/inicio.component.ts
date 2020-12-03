@@ -1,3 +1,5 @@
+import { CategoriaService } from './../../service/categoria.service';
+import { Categoria } from './../../model/categoria';
 import { AnuncioService } from './../../service/anuncio.service';
 import { ProductService } from './../../service/product.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,12 +16,14 @@ import { Anuncio } from 'src/app/model/anuncio';
 export class InicioComponent implements OnInit {
   constructor(public afAuth: AngularFireAuth,
               private productService: ProductService,
-              private anuncioService: AnuncioService
+              private anuncioService: AnuncioService,
+              private categoriaService: CategoriaService
               ) { }
   usuario: string;
   logged: boolean;
   anunciosList: Anuncio[];
   productosList: Product[];
+  categoriaList: Categoria[];
   anuncioActivo: Anuncio = new Anuncio();
 
   ngOnInit() {
@@ -33,6 +37,13 @@ export class InicioComponent implements OnInit {
     test.fecha = new Date();
     this.anuncioService.insertAnuncio(test);**/
 
+    /**let test = new Categoria();
+    test.$key = null;
+    test.nombre = 'Abarrotes';
+    test.urlImg = 'https://firebasestorage.googleapis.com/v0/b/frontend-9ced7.appspot.com/o/abarrotes.png?alt=media&token=99e7fed2-ff63-4d7d-ac0c-33eb0395db06';
+    test.filtro = '1';
+    this.categoriaService.insertCategoria(test);**/
+
     this.afAuth.authState.subscribe( data => {
       if (data != null){
         this.logged = true;
@@ -41,6 +52,17 @@ export class InicioComponent implements OnInit {
         this.logged = false;
       }
     });
+
+    this.categoriaService.getCategorias()
+      .snapshotChanges().subscribe(item => {
+        this.categoriaList = [];
+        item.forEach(element => {
+          let x = element.payload.toJSON();
+          x['$key'] = element.key;
+          this.categoriaList.push(x as Categoria);
+        });
+      });
+
 
     this.productService.getProducts()
       .snapshotChanges().subscribe(item => {
@@ -73,5 +95,9 @@ export class InicioComponent implements OnInit {
 
   setActive(anuncio: Anuncio){
     this.anuncioActivo = anuncio;
+  }
+
+  irCategoria(categoria: Categoria){
+    console.log(categoria);
   }
 }
