@@ -22,6 +22,15 @@ body{
     padding: 0;
     background-color: #dfdfdf;
 }
+
+.carrito{
+  color: #858585;
+  cursor: pointer;
+}
+.carrito:hover{
+  color: #ffffff;
+}
+
 .usuarioIcon{
     color: #fff;
 }

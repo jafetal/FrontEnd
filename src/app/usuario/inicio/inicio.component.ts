@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CategoriaService } from './../../service/categoria.service';
 import { Categoria } from './../../model/categoria';
 import { AnuncioService } from './../../service/anuncio.service';
@@ -17,7 +18,8 @@ export class InicioComponent implements OnInit {
   constructor(public afAuth: AngularFireAuth,
               private productService: ProductService,
               private anuncioService: AnuncioService,
-              private categoriaService: CategoriaService
+              private categoriaService: CategoriaService,
+              private router: Router
               ) { }
   usuario: string;
   logged: boolean;
@@ -95,9 +97,5 @@ export class InicioComponent implements OnInit {
 
   setActive(anuncio: Anuncio){
     this.anuncioActivo = anuncio;
-  }
-
-  irCategoria(categoria: Categoria){
-    console.log(categoria);
   }
 }

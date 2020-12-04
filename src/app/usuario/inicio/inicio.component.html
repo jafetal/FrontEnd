@@ -23,10 +23,12 @@
           Categorías
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a *ngFor="let c of categoriaList" class="dropdown-item" (click)="irCategoria(c)">{{c.nombre}}</a>
+          <a *ngFor="let c of categoriaList" class="dropdown-item" [routerLink]="['../categoria', c.nombre]">{{c.nombre}}</a>
         </div>
       </li>
       <a class="nav-item nav-link" routerLink="" routerLinkActive="">Favoritos</a>
+      <a class="nav-item nav-link" routerLink="../carrito"><i class="fas fa-shopping-cart carrito"></i></a>
+      <a class="nav-item nav-link" routerLink="../carrito"><i class="fas fa-star carrito">Favoritos</i></a>
     </div>
 </nav>
 
@@ -90,19 +92,20 @@
         <img class="card-img-top" src={{producto.urlImg}} alt="Card image cap">
         <div class="card-body">
           <p class="card-text">{{producto.name}}</p>
+          <p>${{producto.price}}<button type="button" class="btn botonAn" [routerLink]="['../producto', producto.$key]"></button></p>
         </div>
       </div>
     </ng-container>
   </div>
 
   <div class="row">
-    <div style="width: 100%; text-align: center;">
+    <div style="width: 100%; text-align: center;margin-top: 30px;">
       <h5>Comprar por categoría</h5>
     </div>
   </div>
-  <div class="row mx-auto" style="text-align: center; padding-left: 30px;">
+  <div class="row justify-content-sm-center" style="text-align: center; padding-left: 30px; width: 100%;" >
     <ng-container *ngFor="let categoria of categoriaList; let i = index">
-    <div *ngIf="!(i>=6)" class="card col-sm-4 tarjetaCat">
+    <div *ngIf="!(i>=6)" class="card col-sm-4 tarjetaCat" [routerLink]="['../categoria', categoria.nombre]" >
         <img class="card-img-top" src={{categoria.urlImg}} alt="Card image cap">
         <div class="card-body titleCardCat">
           <p class="card-text">{{categoria.nombre}}</p>

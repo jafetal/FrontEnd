@@ -1,3 +1,5 @@
+import { ProductoComponent } from './producto/producto.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 import { FooterComponent } from './footer/footer.component';
 import { ExplorarComponent } from './explorar/explorar.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -20,7 +22,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LoginComponent,
     RegistroComponent,
     ExplorarComponent,
-    FooterComponent
+    FooterComponent,
+    CategoriaComponent,
+    ProductoComponent
   ]
 })
 export class UsuarioModule { }

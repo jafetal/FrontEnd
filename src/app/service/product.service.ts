@@ -19,6 +19,11 @@ export class ProductService {
     return this.productList = this.firebase.list('products');
   }
 
+  getProductbyKey(key: string)
+  {
+    return this.firebase.list('products', ref => ref.orderByKey().equalTo(key));
+  }
+
   insertProduct(product: Product)
   {
     this.productList.push({
