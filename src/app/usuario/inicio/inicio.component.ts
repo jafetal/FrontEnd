@@ -23,6 +23,7 @@ export class InicioComponent implements OnInit {
               ) { }
   usuario: string;
   logged: boolean;
+  public buscar: string;
   anunciosList: Anuncio[];
   productosList: Product[];
   categoriaList: Categoria[];

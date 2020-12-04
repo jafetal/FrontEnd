@@ -22,13 +22,13 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLinkActive="">
           Categorías
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a *ngFor="let c of categoriaList" class="dropdown-item" [routerLink]="['../categoria', c.nombre]">{{c.nombre}}</a>
+        <div class="dropdown-menu dropDM" aria-labelledby="navbarDropdownMenuLink">
+          <a *ngFor="let c of categoriaList" class="dropdown-item dropDM" [routerLink]="['../categoria', c.nombre]">{{c.nombre}}</a>
         </div>
       </li>
-      <a class="nav-item nav-link" routerLink="" routerLinkActive="">Favoritos</a>
       <a class="nav-item nav-link" routerLink="../carrito"><i class="fas fa-shopping-cart carrito"></i></a>
-      <a class="nav-item nav-link" routerLink="../carrito"><i class="fas fa-star carrito">Favoritos</i></a>
+      <a class="nav-item nav-link" routerLink="../favoritos"><i class="fas fa-star carrito">Favoritos</i></a>
+      <div class="nav-item nav-link input-group"><input [(ngModel)]="buscar" type="text" class="busqueda"><button type="button" class="btn btnHead" [routerLink]="['../busqueda', buscar]"><i class="fas fa-search"></i>Buscar</button></div>
     </div>
 </nav>
 
@@ -89,10 +89,12 @@
   <div class="row mx-auto" style="text-align: center; padding-left: 30px;">
     <ng-container *ngFor="let producto of productosList; let i = index">
     <div *ngIf="!(i>4)" class="card col-sm-2 tarjeta">
-        <img class="card-img-top" src={{producto.urlImg}} alt="Card image cap">
+        <img class="card-img-top" src={{producto.urlImg}} alt="Card image cap" style="margin-top: 10px;">
         <div class="card-body">
-          <p class="card-text">{{producto.name}}</p>
-          <p>${{producto.price}}<button type="button" class="btn botonAn" [routerLink]="['../producto', producto.$key]"></button></p>
+          <div class="card-text"><div><h5>{{producto.name}}</h5></div>
+            <div><div style="color: #197913;">${{producto.price}}</div><button type="button" class="btn botonProd" [routerLink]="['../producto', producto.$key]">Ver<i class="fas fa-eye"></i></button></div>
+          </div>
+          
         </div>
       </div>
     </ng-container>
