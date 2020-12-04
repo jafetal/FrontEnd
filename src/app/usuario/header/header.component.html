@@ -1,0 +1,33 @@
+<nav id="scanfcode" class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a id="logo" class="navbar-brand" routerLink="/usuario/inicio"><img src="../../../assets/Logo.png" class="barimg"> Tienda Variada Online</a>
+    </div>
+    <div>
+      <div *ngIf="!logged" class="logginBtn">
+        <div style=" margin-left: 10px; padding-top: -20px; color:white !important;"><a style="color:white !important;" class="navbar-brand" routerLink="/usuario/login">Iniciar Sesión</a>|<a style="color:white !important;" class="navbar-brand" routerLink="/usuario/registro">Registrarse</a></div></div>
+      <div *ngIf="logged" class="logginBtn navbar-brand">
+        <a style="color:white !important;"><i class="fas fa-user-circle fa-2x usuarioIcon" style="margin-right: 10px;"></i>Bienvenido {{usuario}}<br></a>
+        <a routerLink="/usuario/inicio" class="navbar-brand"(click)="signOut()" style="color: rgb(201, 201, 201) !important; float: right;">Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>
+            
+<nav class="navbar navbar-expand-md navbar-dark SubBarra">
+    <div class="navbar-nav mr-auto mx-auto">
+      <a class="nav-item nav-link" routerLink="/usuario/inicio" routerLinkActive="active">Inicio</a>
+      <a class="nav-item nav-link" routerLink="/usuario/explorar" routerLinkActive="">Explorar</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLinkActive="">
+          Categorías
+        </a>
+        <div class="dropdown-menu dropDM" aria-labelledby="navbarDropdownMenuLink">
+          <a *ngFor="let c of categoriaList" class="dropdown-item dropDM" [routerLink]="['/usuario/categoria', c.nombre]">{{c.nombre}}</a>
+        </div>
+      </li>
+      <a class="nav-item nav-link" routerLink="/usuario/carrito"><i class="fas fa-shopping-cart carrito"></i></a>
+      <a class="nav-item nav-link" routerLink="/usuario/favoritos"><i class="fas fa-star carrito">Favoritos</i></a>
+      <div class="nav-item nav-link input-group"><input [(ngModel)]="buscar" type="text" class="busqueda"><button type="button" class="btn btnHead" [routerLink]="['/usuario/busqueda', buscar]"><i class="fas fa-search"></i>Buscar</button></div>
+    </div>
+</nav>

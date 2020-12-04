@@ -1,3 +1,8 @@
+import { PagoComponent } from './pago/pago.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { HeaderComponent } from './header/header.component';
 import { ProductoComponent } from './producto/producto.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { FooterComponent } from './footer/footer.component';
@@ -26,7 +31,12 @@ import { FormsModule } from '@angular/forms';
     ExplorarComponent,
     FooterComponent,
     CategoriaComponent,
-    ProductoComponent
+    ProductoComponent,
+    HeaderComponent,
+    BusquedaComponent,
+    CarritoComponent,
+    FavoritosComponent,
+    PagoComponent
   ]
 })
 export class UsuarioModule { }

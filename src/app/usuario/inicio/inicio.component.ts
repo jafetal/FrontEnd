@@ -21,9 +21,7 @@ export class InicioComponent implements OnInit {
               private categoriaService: CategoriaService,
               private router: Router
               ) { }
-  usuario: string;
-  logged: boolean;
-  public buscar: string;
+
   anunciosList: Anuncio[];
   productosList: Product[];
   categoriaList: Categoria[];
@@ -46,15 +44,6 @@ export class InicioComponent implements OnInit {
     test.urlImg = 'https://firebasestorage.googleapis.com/v0/b/frontend-9ced7.appspot.com/o/abarrotes.png?alt=media&token=99e7fed2-ff63-4d7d-ac0c-33eb0395db06';
     test.filtro = '1';
     this.categoriaService.insertCategoria(test);**/
-
-    this.afAuth.authState.subscribe( data => {
-      if (data != null){
-        this.logged = true;
-        this.usuario = data.email;
-      }else{
-        this.logged = false;
-      }
-    });
 
     this.categoriaService.getCategorias()
       .snapshotChanges().subscribe(item => {
@@ -86,14 +75,6 @@ export class InicioComponent implements OnInit {
           this.anunciosList.push(x as Anuncio);
         });
       });
-  }
-
-  signOut(){
-    this.afAuth.authState.subscribe( data => {
-      if (data != null){
-        this.afAuth.signOut();
-      }
-    });
   }
 
   setActive(anuncio: Anuncio){

@@ -6,6 +6,10 @@ import { LoginComponent } from './login/login.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { PagoComponent } from './pago/pago.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 const routes: Routes = [
 
@@ -37,7 +41,23 @@ const routes: Routes = [
     {
       path: 'producto/:key',
       component: ProductoComponent,
-    }
+    },
+    {
+      path: 'busqueda/:busqueda',
+      component: BusquedaComponent,
+    },
+    {
+      path: 'carrito',
+      component: CarritoComponent,
+    },
+    {
+      path: 'favoritos',
+      component: FavoritosComponent,
+    },
+    {
+      path: 'pago',
+      component: PagoComponent,
+    },
   ];
 
 @NgModule({
