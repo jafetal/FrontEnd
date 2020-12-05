@@ -1,8 +1,13 @@
 <app-header></app-header>
 <div class="container" style="min-height: 700px; background-color: white;">
     <div class="row">
-      <h4 style="margin-left: 30px;">Explorar</h4>
+      <h4 style="margin-left: 30px;">Nueva búsqueda</h4>
     </div>
+    <div class="row" style="border-top: 1px solid #b3b3b3; padding-top: 30px;" *ngIf="(productList.length > 0)">
+      <div class="col-sm-12" style="font-size: 35px; color:#353535;" align=center>
+          Resultado de búsqueda de "{{filtro}}"
+      </div>
+  </div>
     <div class="row mx-auto" style="text-align: center; padding-left: 30px;"  *ngIf="productList != null">
       <ng-container *ngFor="let producto of productList; let i = index">
       <div class="card col-sm-2 tarjeta">

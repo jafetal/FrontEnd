@@ -1,5 +1,29 @@
 <app-header></app-header>
-<div class="container">
-
+<div class="container" style="min-height: 700px; background-color: white;">
+    <div class="row" style="border-bottom: 1px solid #b3b3b3; padding-top: 10px;">
+        <div class="col-sm-12" style="font-size: 35px; color:#353535;" align=center>
+            Revisión de pago(No funcional)
+        </div>
+    </div>
+    <div class="row" style="border-bottom: 1px solid #b3b3b3; padding-top: 10px;">
+        <div class="col-sm-12" style="font-size: 20px; color:#353535;" align=center *ngIf="logged">
+                Procediendo al pago como: {{usuario}}.
+        </div>
+        <div class="col-sm-12" style="font-size: 20px; color:#353535;" align=center *ngIf="!logged">
+                No ha iniciado sesión, así que se hará la compra como invitado.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div><img src="https://image.freepik.com/vector-gratis/ilustracion-tarjeta-credito_53876-25493.jpg" style="height: 500px; width: auto;"></div>
+        </div>
+        <div class="col-sm-6">
+            <div style="margin-top: 150px;"></div>
+            <div>Número de tarjeta: <br><input type="text"></div>
+            <div>Fecha de vencimiento: <br><input type="text"></div>
+            <div>CCV: <br><input type="text"></div>
+            <div style="margin-top: 30px;"><button class="btn btn-danger" style="width: 200px;" disabled>Realizar pago</button></div>
+        </div>
+    </div>
 </div>
 <app-footer></app-footer>
