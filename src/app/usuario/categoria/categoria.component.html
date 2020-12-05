@@ -1,5 +1,22 @@
 <app-header></app-header>
-<div class="container">
+<div class="container" style="min-height: 700px; background-color: white;">
+
+    <div class="row">
+        <h4 style="margin-left: 30px;">{{categoria}}</h4>
+      </div>
+      <div class="row mx-auto" style="text-align: center; padding-left: 30px;">
+        <ng-container *ngFor="let producto of productosList; let i = index">
+        <div *ngIf="producto.category == categoria" class="card col-sm-2 tarjeta">
+            <img class="card-img-top" src={{producto.urlImg}} alt="Card image cap" style="margin-top: 10px; height: 150px; width: auto;">
+            <div class="card-body">
+              <div class="card-text"><div><h5>{{producto.name}}</h5></div>
+                <div><div style="color: #197913;">${{producto.price}}</div><button type="button" class="btn botonProd" [routerLink]="['/usuario/producto', producto.$key]">Ver<i class="fas fa-eye"></i></button></div>
+              </div>
+              
+            </div>
+          </div>
+        </ng-container>
+      </div>
 
 </div>
 <app-footer></app-footer>

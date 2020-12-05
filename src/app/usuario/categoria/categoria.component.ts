@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Categoria } from 'src/app/model/categoria';
+import { ProductService } from './../../service/product.service';
+import { Product } from '../../model/product';
 
 @Component({
   selector: 'app-categoria',
@@ -11,10 +13,12 @@ import { Categoria } from 'src/app/model/categoria';
 export class CategoriaComponent implements OnInit {
   categoria: string;
   usuario: string;
+  productosList: Product[];
   logged: boolean;
 
   constructor(private route: ActivatedRoute,
-              public afAuth: AngularFireAuth) { }
+              public afAuth: AngularFireAuth,
+              private productService: ProductService) { }
 
   ngOnInit(){
     this.afAuth.authState.subscribe( data => {
@@ -29,6 +33,17 @@ export class CategoriaComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.categoria = params['nombre'];
       console.log(this.categoria);
+
+      this.productService.getProducts()
+      .snapshotChanges().subscribe(item => {
+        this.productosList = [];
+        item.forEach(element => {
+          let x = element.payload.toJSON();
+          x['$key'] = element.key;
+          this.productosList.push(x as Product);
+        });
+      });
+
     });
   }
 

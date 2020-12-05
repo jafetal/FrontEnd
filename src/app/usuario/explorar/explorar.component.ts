@@ -17,35 +17,16 @@ export class ExplorarComponent implements OnInit {
   logged: boolean;
   productList: Product[];
 
-  tutorials: any;
-  currentTutorial = null;
-  currentIndex = -1;
-  title = '';
-
-  page = 1;
-  count = 0;
-  pageSize = 5;
-  pageSizes = [3, 6, 9];
-
   ngOnInit() {
     /**let test = new Product();
     test.$key = null;
-    test.category = 'Electrónicos';
-    test.location = 'Indiferente';
-    test.name = 'Alga Marina';
-    test.price = 100;
-    test.urlImg = 'https://i.pinimg.com/originals/dc/84/ee/dc84ee4334c48a24b4e2833813605100.png';
-    test.availability = 100;
+    test.category = 'Ropa';
+    test.descripcion = 'Jersey local de tigres, preparate para sobresalir con amigos con representando al más campeón de Nuevo León';
+    test.name = 'Jersey Tigres 2020';
+    test.price = 1099;
+    test.urlImg = 'https://assets.adidas.com/images/w_600,f_auto,q_auto/0a186bbf68b84cdb9c84abf700dc5fe3_9366/Jersey_Local_Tigres_UANL_20-21_Amarillo_FR2301_01_laydown.jpg';
+    test.availability = 35;
     this.productService.insertProduct(test);**/
-
-    this.afAuth.authState.subscribe( data => {
-      if (data != null){
-        this.logged = true;
-        this.usuario = data.email;
-      }else{
-        this.logged = false;
-      }
-    });
 
     return this.productService.getProducts()
       .snapshotChanges().subscribe(item => {
@@ -65,32 +46,4 @@ export class ExplorarComponent implements OnInit {
       }
     });
   }
-
-  getRequestParams(searchTitle, page, pageSize): any {
-    // tslint:disable-next-line:prefer-const
-    let params = {};
-
-    if (searchTitle) {
-      params[`title`] = searchTitle;
-    }
-
-    if (page) {
-      params[`page`] = page - 1;
-    }
-
-    if (pageSize) {
-      params[`size`] = pageSize;
-    }
-
-    return params;
-  }
-
-  handlePageChange(event): void {
-    this.page = event;
-  }
-
-  handlePageSizeChange(event): void {
-    this.pageSize = event.target.value;
-    this.page = 1;
-    }
 }

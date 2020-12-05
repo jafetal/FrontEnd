@@ -10,10 +10,12 @@ import { ProductService } from '../../service/product.service';
   styleUrls: ['./producto.component.css']
 })
 export class ProductoComponent implements OnInit {
-  productosList: Product[];
+  productosList: Product[] = [];
   keyP: string;
   usuario: string;
   logged: boolean;
+  carrito: Product[] = [];
+  cantidad = 1;
   
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
@@ -43,6 +45,18 @@ export class ProductoComponent implements OnInit {
       });
     });
 
+    if(JSON.parse(localStorage.getItem('carrito')) == null){
+      localStorage.setItem('carrito', JSON.stringify(this.carrito));
+    }
     
+  }
+
+  agregarcarrito(){
+    this.carrito = JSON.parse(localStorage.getItem('carrito'));
+    let ob = this.productosList[0];
+    ob.cantidadSeleccionada = this.cantidad;
+    this.carrito.push(ob);
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+    alert('Se ha agregado el artículo al carrito');
   }
 }
